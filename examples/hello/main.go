@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/url"
 
-	"github.com/zserge/lorca"
+	"github.com/quinn-getty/lorca"
 )
 
 func main() {

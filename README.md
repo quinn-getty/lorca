@@ -1,8 +1,8 @@
 # Lorca
 
-[![Build Status](https://img.shields.io/github/workflow/status/zserge/lorca/CI%20Pipeline)](https://github.com/zserge/lorca)
-[![GoDoc](https://godoc.org/github.com/zserge/lorca?status.svg)](https://godoc.org/github.com/zserge/lorca)
-[![Go Report Card](https://goreportcard.com/badge/github.com/zserge/lorca)](https://goreportcard.com/report/github.com/zserge/lorca)
+[![Build Status](https://img.shields.io/github/workflow/status/zserge/lorca/CI%20Pipeline)](https://github.com/quinn-getty/lorca)
+[![GoDoc](https://godoc.org/github.com/quinn-getty/lorca?status.svg)](https://godoc.org/github.com/quinn-getty/lorca)
+[![Go Report Card](https://goreportcard.com/badge/github.com/quinn-getty/lorca)](https://goreportcard.com/report/github.com/quinn-getty/lorca)
 
 <div>
 <img align="left" src="https://raw.githubusercontent.com/zserge/lorca/master/lorca.png" alt="Lorca" width="128px" height="128px" />
@@ -17,29 +17,28 @@
 <br/>
 </div>
 
-
 ## Features
 
-* Pure Go library (no cgo) with a very simple API
-* Small application size (normally 5-10MB)
-* Best of both worlds - the whole power of HTML/CSS to make your UI look
-	good, combined with Go performance and ease of development
-* Expose Go functions/methods and call them from JavaScript
-* Call arbitrary JavaScript code from Go
-* Asynchronous flow between UI and main app in both languages (async/await and Goroutines)
-* Supports loading web UI from the local web server or via data URL
-* Supports testing your app with the UI in the headless mode
-* Supports multiple app windows
-* Supports packaging and branding (e.g. custom app icons). Packaging for all
-	three OS can be done on a single machine using GOOS and GOARCH variables.
+- Pure Go library (no cgo) with a very simple API
+- Small application size (normally 5-10MB)
+- Best of both worlds - the whole power of HTML/CSS to make your UI look
+  good, combined with Go performance and ease of development
+- Expose Go functions/methods and call them from JavaScript
+- Call arbitrary JavaScript code from Go
+- Asynchronous flow between UI and main app in both languages (async/await and Goroutines)
+- Supports loading web UI from the local web server or via data URL
+- Supports testing your app with the UI in the headless mode
+- Supports multiple app windows
+- Supports packaging and branding (e.g. custom app icons). Packaging for all
+  three OS can be done on a single machine using GOOS and GOARCH variables.
 
 Also, limitations by design:
 
-* Requires Chrome/Chromium >= 70 to be installed.
-* No control over the Chrome window yet (e.g. you can't remove border, make it
-	transparent, control position or size).
-* No window menu (tray menus and native OS dialogs are still possible via
-	3rd-party libraries)
+- Requires Chrome/Chromium >= 70 to be installed.
+- No control over the Chrome window yet (e.g. you can't remove border, make it
+  transparent, control position or size).
+- No window menu (tray menus and native OS dialogs are still possible via
+  3rd-party libraries)
 
 If you want to have more control of the browser window - consider using
 [webview](https://github.com/zserge/webview) library with a similar API, so
@@ -98,4 +97,3 @@ project with a similar goal for Node.js.
 
 Code is distributed under MIT license, feel free to use it in your proprietary
 projects as well.
-
