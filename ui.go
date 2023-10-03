@@ -49,7 +49,7 @@ var defaultChromeArgs = []string{
 	"--no-first-run",
 	"--no-default-browser-check",
 	"--safebrowsing-disable-auto-update",
-	"--enable-automation",
+	// "--enable-automation",
 	"--password-store=basic",
 	"--use-mock-keychain",
 }
@@ -60,7 +60,7 @@ var defaultChromeArgs = []string{
 // string - a temporary directory is created and it will be removed on
 // ui.Close(). You might want to use "--headless" custom CLI argument to test
 // your UI code.
-func New(url, dir string, width, height int, excludeDefaultArgs []string, customArgs ...string) (UI, error) {
+func New(url, dir string, width, height int, customArgs ...string) (UI, error) {
 	if url == "" {
 		url = "data:text/html,<html></html>"
 	}
@@ -72,9 +72,7 @@ func New(url, dir string, width, height int, excludeDefaultArgs []string, custom
 		}
 		dir, tmpDir = name, name
 	}
-	finallyChromeArgs := mergeArgs(defaultChromeArgs, excludeDefaultArgs)
-	args := append(finallyChromeArgs, fmt.Sprintf("--app=%s", url))
-
+	args := append(defaultChromeArgs, fmt.Sprintf("--app=%s", url))
 	args = append(args, fmt.Sprintf("--user-data-dir=%s", dir))
 	args = append(args, fmt.Sprintf("--window-size=%d,%d", width, height))
 	args = append(args, customArgs...)
@@ -175,23 +173,4 @@ func (u *ui) SetBounds(b Bounds) error {
 
 func (u *ui) Bounds() (Bounds, error) {
 	return u.chrome.bounds()
-}
-
-func mergeArgs(defaultArgs []string, excludeArgs []string) []string {
-	result := []string{}
-	for _, arg := range defaultArgs {
-		if !has(excludeArgs, arg) {
-			result = append(result, arg)
-		}
-	}
-	return result
-}
-
-func has(source []string, target string) bool {
-	for _, s := range source {
-		if s == target {
-			return true
-		}
-	}
-	return false
 }
